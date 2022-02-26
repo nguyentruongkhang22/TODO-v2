@@ -9,7 +9,7 @@ const router = require('./routers/route');
 dotenv.config({ path: './config.env' });
 const app = express();
 const PORT = process.env.PORT || 3000;
-const DB = process.env.DATABASE.replace('<password>', process.env.DATABASE_PASSWORD);
+const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 // MIDDLEWARES
 app.use(express.static('./public'));
