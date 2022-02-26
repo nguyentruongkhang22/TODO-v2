@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic To Do List</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+</head>
+
+<body>
+    <div class="nav-bar">
+        <div id="home"><a href="#">Home</a></div>
+        <div id="list"><a href="#">List</a></div>
+        <div id="add-new"><a href="#">Add New Things To Do</a></div>
+    </div>
+
+    <div class="todo-containters">
+        <div class="all-todos">
+            <!-- Reserved for new task -->
+
+        </div>
+    </div>
+
+    <div class="new-todo">
+        <form method="post" class="new-todo">
+            <input type="text" name="title" id="todo-title" placeholder="Title" required autocomplete="off">
+            <input type="text" name="desc" id="todo-desc" placeholder="Description" required
+                autocomplete="off">
+            <button type="submit" onclick="newThing()">Add New TODO</button>
+        </form>
+    </div>
+    <script src="./js/client.js"></script>
+</body>
+
+</html>

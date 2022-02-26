@@ -1,0 +1,108 @@
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin: auto;
+}
+
+.nav-bar {
+    padding: 10px;
+    height: 10vh;
+    display: flex;
+    background-color: #333;
+    color: white;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    flex-direction: row;
+}
+
+.nav-bar > div > a {
+    text-decoration: none;
+    color: unset;
+    padding: 10px;
+}
+
+#home {
+    margin-right: 100px;
+}
+
+#list {
+    margin-right: 100px;
+}
+
+#add-new {
+    margin-right: 100px;
+}
+
+#remove-btn {
+    top: -40%;
+    right: 2%;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #333;
+    border-radius: 60%;
+    /* background-color: transparent; */
+    position: absolute;
+}
+
+.todo-containters {
+    text-align: center;
+}
+
+.all-todos {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    border: 1px solid #333;
+    border-radius: 8px;
+    min-width: 250px;
+    max-width: 250px;
+    text-align: center;
+    margin: 50px 10px;
+    word-wrap: break-word;
+    position: relative;
+}
+
+#item-title {
+    position: relative;
+    border-bottom: 1px solid #333;
+}
+
+#item-desc {
+    height: 70px;
+}
+
+.new-todo {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    margin: 50px auto;
+}
+
+/* .new-todo > input {
+} */
+
+#todo-desc {
+    height: 20vh;
+}
+
+.edit-btn:hover {
+    /* opacity: 1.5; */
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+.edit-btn {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    padding: 5px 10px;
+    margin: 0 0 -35px -20px;
+    background-color: transparent;
+    border: 1px solid blue;
+    border-radius: 7px;
+    /* outline: blue; */
+}
