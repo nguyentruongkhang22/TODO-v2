@@ -1,7 +1,8 @@
 let todos = [];
+const url = 'https://stormy-escarpment-82036.herokuapp.com/';
 let currentEl;
 const getData = async () => {
-    let todos = await (await fetch('http://localhost:3000/api/v1/data')).json();
+    let todos = await (await fetch(`${url}api/v1/data`)).json();
     todos = todos.data.tasks;
     const items = await document.querySelector('.all-todos');
     for (let i = 0; i < todos.length; i++) {
@@ -29,7 +30,7 @@ getData();
 const deleteTask = async (parentNode) => {
     try {
         const titleDelete = await parentNode.innerText.split('\n')[1];
-        await axios.delete(`http://localhost:3000/api/v1/task/${titleDelete}`);
+        await axios.delete(`${url}api/v1/task/${titleDelete}`);
         parentNode.parentNode.remove();
     } catch (error) {
         parentNode.parentNode.remove();
@@ -43,7 +44,7 @@ const updateTask = async (e) => {
 
         const descPatch = await e.parentElement.childNodes[3].innerText.trim();
         console.log(descPatch);
-        await axios.patch(`http://localhost:3000/api/v1/task/${titlePatch}`, {
+        await axios.patch(`${url}api/v1/task/${titlePatch}`, {
             title: titlePatch,
             description: descPatch,
         });
