@@ -1,5 +1,5 @@
 const Task = require('../models/taskModel');
-const url = 'https://stormy-escarpment-82036.herokuapp.com/';
+const url = 'http://localhost:3000/';
 exports.getAllTasks = async (req, res) => {
     try {
         const tasks = await Task.find();
@@ -32,10 +32,9 @@ exports.addNewTask = async (req, res) => {
 
 exports.deleteTask = async (req, res) => {
     try {
-        await Task.deleteOne({ title: req.params.title });
+        await Task.findByIdAndDelete(req.params.id);
         await res.redirect(url);
     } catch (error) {
-        await console.log('hiih');
         await res.redirect(url);
     }
 };
@@ -43,7 +42,7 @@ exports.deleteTask = async (req, res) => {
 exports.updateTask = async (req, res) => {
     try {
         console.log(req.body);
-        await Task.findOneAndUpdate({ title: req.params.title }, req.body, {
+        await Task.findOneAndUpdate({ id: req.params.id }, req.body, {
             new: true,
             runValidators: true,
         });
