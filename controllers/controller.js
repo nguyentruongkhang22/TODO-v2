@@ -1,5 +1,5 @@
 const Task = require('../models/taskModel');
-const url = 'http://localhost:3000/';
+const url = 'https://stormy-escarpment-82036.herokuapp.com/';
 exports.getAllTasks = async (req, res) => {
     try {
         const tasks = await Task.find();
