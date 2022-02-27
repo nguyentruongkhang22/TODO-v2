@@ -1,5 +1,5 @@
 let todos = [];
-const url = 'https://stormy-escarpment-82036.herokuapp.com/';
+const url = 'http://localhost:3000/';
 const getData = async () => {
     let todos = await (await fetch(`${url}api/v1/data`)).json();
     todos = todos.data.tasks;
