@@ -101,6 +101,7 @@ body {
 }
 
 #item-desc > p {
+    text-indent: 50px;
     height: 100%;
     text-align: justify;
     margin: 0 10px;
