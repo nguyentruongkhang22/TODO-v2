@@ -60,7 +60,8 @@ body {
     background-color: whitesmoke;
     border-radius: 20px;
     margin: 20px 0;
-    min-width: 83vw;
+    min-width: 82vw;
+    max-width: 82vw;
 }
 
 .all-todos {
@@ -77,10 +78,10 @@ body {
 .item {
     border: 2px solid #e27d60;
     border-radius: 8px;
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 320px;
+    max-width: 320px;
     text-align: center;
-    margin: 50px 10px;
+    margin: 40px 10px;
     word-wrap: break-word;
     position: relative;
 }
@@ -96,16 +97,25 @@ body {
 }
 
 #item-desc {
-    height: 70px;
+    height: 170px;
+}
+
+#item-desc > p {
+    height: 100%;
+    text-align: justify;
+    margin: 0 10px;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
 }
 
 .new-todo {
     display: flex;
     flex-direction: column;
     width: 20vw;
-    margin: auto;
+    margin: 0 auto 20px auto;
     /* background: linear-gradient(0.3turn, #ffffff, #eb71e0); */
-    padding: 50px;
+    padding: 30px;
     border: #41b3a3 solid 2px;
     border-radius: 5px;
     color: #41b3a3;
