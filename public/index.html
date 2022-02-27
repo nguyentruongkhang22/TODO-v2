@@ -12,26 +12,32 @@
 </head>
 
 <body>
-    <div class="nav-bar">
-        <div id="home"><a href="#">Home</a></div>
-        <div id="list"><a href="#">List</a></div>
-        <div id="add-new"><a href="#">Add New Things To Do</a></div>
-    </div>
-
-    <div class="todo-containters">
-        <div class="all-todos">
-            <!-- Reserved for new task -->
-
+    <div class="container">
+        <div class="nav-bar">
+            <div id="home"><a href="#">Option 1</a></div>
+            <div id="list"><a href="#">Option 2</a></div>
+            <div id="add-new"><a href="#">Option 3</a></div>
         </div>
-    </div>
 
-    <div class="new-todo">
-        <form method="post" class="new-todo">
-            <input type="text" name="title" id="todo-title" placeholder="Title" required autocomplete="off">
-            <input type="text" name="desc" id="todo-desc" placeholder="Description" required
-                autocomplete="off">
-            <button type="submit" onclick="newThing()">Add New TODO</button>
-        </form>
+        <div class="todo-containters">
+            <div class="all-todos">
+                <!-- Reserved for new task -->
+
+            </div>
+            <div class="new-todo">
+                <form method="post">
+                    <h5>Task <span style="color: red;">*</span>:</h5>
+                    <input type="text" name="title" id="todo-title" placeholder="Title" required
+                        autocomplete="off">
+                    <h5>Task Description <span style="color: red;">*</span>:</h5>
+                    <input type="text" name="desc" id="todo-desc" placeholder="Description" required
+                        autocomplete="off">
+                    <button type="submit">ADD</button>
+                </form>
+            </div>
+        </div>
+
+
     </div>
     <script src="./js/client.js"></script>
 </body>

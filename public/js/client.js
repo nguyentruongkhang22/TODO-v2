@@ -1,50 +1,49 @@
 let todos = [];
-const url = 'https://stormy-escarpment-82036.herokuapp.com/';
-let currentEl;
+const url = 'http://localhost:3000/';
 const getData = async () => {
     let todos = await (await fetch(`${url}api/v1/data`)).json();
     todos = todos.data.tasks;
     const items = await document.querySelector('.all-todos');
-    for (let i = 0; i < todos.length; i++) {
+    todos.forEach((element) => {
         let HTML = `
         <div class="item">
             <div id="item-title">
 				<h3 contenteditable="true" onclick="editTask(this)" spellcheck="false">
-					${todos[i].title || 'Title'}
+					${element.title || 'Title'}
 				</h3>
-                <button id="remove-btn" onclick="deleteTask(this.parentNode)">X</button>
+                <button class="remove-btn" onclick="deleteTask(\'${element['_id']}\',this.parentElement)">X</button>
             </div>
             <div id="item-desc">
 				<p contenteditable="true" onclick="editTask(this)" spellcheck="false">
-				${todos[i].description || 'Description'} 
+				${element.description || 'Description'} 
 				</p>
 			</div>
-			<button class="edit-btn" onclick="updateTask(this)">Save</button>
+			<button class="edit-btn" onclick="updateTask(\'${element['_id']}\', this)">Save</button>
         </div>
         `;
         items.innerHTML += HTML;
-    }
+    });
 };
+
 getData();
 
-const deleteTask = async (parentNode) => {
+const deleteTask = async (currentId, item) => {
     try {
-        const titleDelete = await parentNode.innerText.split('\n')[1];
-        await axios.delete(`${url}api/v1/task/${titleDelete}`);
-        parentNode.parentNode.remove();
+        item.parentElement.remove();
+        console.log(currentId);
+        await axios.delete(`${url}api/v1/task/${currentId}`);
     } catch (error) {
-        parentNode.parentNode.remove();
+        // parentNode.parentNode.remove();
+        console.log(error);
     }
 };
 
-const updateTask = async (e) => {
+const updateTask = async (currentId, e) => {
     try {
-        const titlePatch =
-            await e.parentElement.firstElementChild.firstElementChild.innerHTML.trim();
-
+        const titlePatch = await e.parentElement.firstElementChild.firstElementChild.innerHTML.trim();
         const descPatch = await e.parentElement.childNodes[3].innerText.trim();
         console.log(descPatch);
-        await axios.patch(`${url}api/v1/task/${titlePatch}`, {
+        await axios.patch(`${url}api/v1/task/${currentId}`, {
             title: titlePatch,
             description: descPatch,
         });
@@ -57,12 +56,9 @@ const updateTask = async (e) => {
 };
 
 async function editTask(e) {
-    currentEl = await e;
     e.parentElement.parentElement.lastElementChild.style.visibility = 'visible';
 }
 
 const removeBtn = async (e) => {
     e.style.visibility = 'hidden';
 };
-
-// const newThing = async (req, res) => {};
