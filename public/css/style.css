@@ -9,26 +9,37 @@ body {
 }
 
 .nav-bar {
+    position: relative;
     padding: 10px;
     height: 100vh;
     display: flex;
 
     color: whitesmoke;
     flex-direction: column;
+    justify-content: space-between;
 }
 
-.nav-bar > div {
+.upper > div {
     margin: 30px 0;
 }
 
-.nav-bar > div :hover {
+.upper > div :hover {
     border-bottom: solid 3px #e8a87c;
 }
 
-.nav-bar > div > a {
+.upper > div > a {
     text-decoration: none;
     color: unset;
     padding: 10px;
+}
+
+#contacts > div > a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+#contacts {
+    margin-bottom: 10vh;
 }
 
 #home {
@@ -61,12 +72,13 @@ body {
     background-color: whitesmoke;
     border-radius: 20px;
     margin: 20px 0;
-    min-width: 82vw;
-    max-width: 82vw;
+    min-width: 75vw;
+    max-width: 75vw;
 }
 
 .all-todos {
     margin: 20px;
+    padding-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -79,10 +91,10 @@ body {
 .item {
     border: 2px solid #e27d60;
     border-radius: 8px;
-    min-width: 320px;
-    max-width: 320px;
+    min-width: 250px;
+    max-width: 250px;
     text-align: center;
-    margin: 40px 10px;
+    margin: 30px 10px;
     word-wrap: break-word;
     position: relative;
 }

@@ -1,5 +1,5 @@
 let todos = [];
-const url = 'https://stormy-escarpment-82036.herokuapp.com/';
+const url = 'http://localhost:3000/';
 const getData = async () => {
     let todos = await (await fetch(`${url}api/v1/data`)).json();
     todos = todos.data.tasks;
@@ -8,15 +8,12 @@ const getData = async () => {
         let HTML = `
         <div class="item">
             <div id="item-title">
-				<h3 contenteditable="true" onclick="editTask(this)" spellcheck="false">
-					${element.title || 'Title'}
-				</h3>
+				<h3 contenteditable="true" onclick="editTask(this)" spellcheck="false">${element.title || 'Title'}</h3>
                 <button class="remove-btn" onclick="deleteTask(\'${element['_id']}\',this.parentElement)">X</button>
             </div>
             <div id="item-desc">
 				<p contenteditable="true" onclick="editTask(this)" spellcheck="false">
-				${element.description || 'Description'} 
-				</p>
+				${element.description || 'Description'}</p>
 			</div>
 			<button class="edit-btn" onclick="updateTask(\'${element['_id']}\', this)">Save</button>
         </div>
